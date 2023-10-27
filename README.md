@@ -1,4 +1,4 @@
-# Tree Traversals
+## Tree Traversals
 
 1. **Preorder (Root, Left, Right)**:
    - Visit the root.
@@ -74,7 +74,7 @@ void levelOrder(Node* root) {
 
 ---
 
-# Greedy
+## Greedy
 
 Makes locally optimal choices at each step, aiming for a global optimum.
 
@@ -84,7 +84,7 @@ Makes locally optimal choices at each step, aiming for a global optimum.
 
  ---
 
- # Breadth First Search
+ ## Breadth First Search
 
 - Searches level by level.
 - Uses a queue.
@@ -117,7 +117,7 @@ void bfs(int start) {
 
 ---
 
-# Depth First Search
+## Depth First Search
 
 - Searches by exploring as far as possible along a branch and then backtracks.
 - Uses a stack or recursion.
