@@ -1,11 +1,24 @@
 # Algorithms
-- [Tree Traversals](#tree-traversals)
-- [Greedy](#greedy)
-- [Breadth First Search](#breadth-first-search)
-- [Depth First Search](#depth-first-search)
-- [Dynamic Programming](#dynamic-programming)
-- [1D vs. 2D Dynamic Programming](#1d-vs-2d-dynamic-programming)
-- [Backtracking](#backtracking)
+
+1. [Tree Traversals](#tree-traversals)
+   - 1.1 [Preorder Traversal (Root, Left, Right)](#preorder-traversal-root-left-right)
+   - 1.2 [Inorder Traversal (Left, Root, Right)](#inorder-traversal-left-root-right)
+   - 1.3 [Postorder Traversal (Left, Right, Root)](#postorder-traversal-left-right-root)
+   - 1.4 [Level Order Traversal (Breadth First)](#level-order-traversal-breadth-first)
+   
+2. [Greedy](#greedy)
+   
+3. [Graph Traversals](#graph-traversals)
+   - 3.1 [Breadth First Search (BFS)](#breadth-first-search-bfs)
+   - 3.2 [Depth First Search (DFS)](#depth-first-search-dfs)
+
+4. [Dynamic Programming](#dynamic-programming)
+   - 4.1 [Memoization](#memoization)
+   - 4.2 [Tabulation](#tabulation)
+
+5. [1D vs. 2D Dynamic Programming](#1d-vs-2d-dynamic-programming)
+   
+6. [Backtracking](#backtracking)
 
 ---
 
