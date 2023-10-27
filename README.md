@@ -160,7 +160,6 @@ void dfs(int vertex) {
 - Solves complex problems by breaking them into simpler subproblems.
   
 ### Memoization
-
 - Top-down DP approach.
 - Uses recursion and stores results of subproblems in a cache to avoid redundant computations.
   
@@ -174,7 +173,6 @@ int fib_memo(int n, int memo[]) {
 ```
 
 ### Tabulation
-
 - Bottom-up DP approach.
 - Builds a table in a bottom-up fashion to obtain the solution to the main problem.
 
@@ -202,6 +200,10 @@ int main() {
 
 ## 1D vs. 2D Dynamic Programming
 
+### Differences
+- 1D DP considers a single aspect (single string, array).
+- 2D DP involves combinations or relations between two aspects (two strings, a matrix, two sequences).
+
 ### Applications (1D)
 
 - **Fibonacci**: nth Fibonacci number.
@@ -217,12 +219,6 @@ int main() {
 - **Edit Distance**: Min edits to transform one string to another.
 - **Grid Path**: Shortest path in a 2D grid.
 - **Palindromic Subs**: Longest palindromic substring or subsequence.
-
-**Notes**:
-- 1D DP considers a single aspect.
-   - Single string, array.
-- 2D DP involves combinations or relations between two aspects.
-   - Two strings, a matrix, two sequences.
 
 ---
 
