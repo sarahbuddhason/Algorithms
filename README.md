@@ -74,10 +74,68 @@ void levelOrder(Node* root) {
 
 ---
 
-# Greedy Algorithm
+# Greedy
 
 Makes locally optimal choices at each step, aiming for a global optimum.
 
 - **Complexity**:
   - **Time**: Often O(n) or O(n log n).
   - **Space**: Usually O(n).
+
+ ---
+
+ # Breadth First Search
+
+- Searches level by level.
+- Uses a queue.
+- **Time**: O(V + E) [V: vertices, E: edges]
+- **Space**: O(V)
+
+```
+vector<bool> visited;
+vector<vector<int>> adj; // adjacency list
+
+void bfs(int start) {
+    queue<int> q;
+    visited[start] = true;
+    q.push(start);
+
+    while(!q.empty()) {
+        int vertex = q.front();
+        q.pop();
+        // Process vertex
+
+        for(int i : adj[vertex]) {
+            if(!visited[i]) {
+                visited[i] = true;
+                q.push(i);
+            }
+        }
+    }
+}
+```
+
+---
+
+# Depth First Search
+
+- Searches by exploring as far as possible along a branch and then backtracks.
+- Uses a stack or recursion.
+- **Time**: O(V + E) [V: vertices, E: edges]
+- **Space**: O(V)
+
+```
+vector<bool> visited;
+vector<vector<int>> adj; // adjacency list
+
+void dfs(int vertex) {
+    visited[vertex] = true;
+    // Process vertex
+
+    for(int i : adj[vertex]) {
+        if(!visited[i]) {
+            dfs(i);
+        }
+    }
+}
+```
