@@ -5,7 +5,7 @@
    - 1.2 [Inorder Traversal (Left, Root, Right)](#inorder-traversal-left-root-right)
    - 1.3 [Postorder Traversal (Left, Right, Root)](#postorder-traversal-left-right-root)
    - 1.4 [Level Order Traversal (Breadth First)](#level-order-traversal-breadth-first)
-   - 1.5 [Morris Inorder Traversal](#morris-inorder-traversal)
+   - 1.5 [Morris Traversal](#morris-traversal)
    
 2. [Greedy](#greedy)
    
@@ -101,9 +101,7 @@ void levelOrder(Node* root) {
 }
 ```
 
----
-
-### Morris Inorder Traversal
+### Morris Traversal
 
 - Traverse threaded binary tree without using stack or recursion.
 - Modifies the tree during the traversal and then restores it back.
