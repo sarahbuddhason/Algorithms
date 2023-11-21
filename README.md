@@ -122,10 +122,11 @@ struct Node {
 };
 
 void MorrisTraversal(Node* root) {
-    Node *curr, *pred;
     if (root == nullptr) return;
 
-    curr = root;
+    TreeNode* curr = root;
+    TreeNode* pred = nullptr;
+
     while (curr != nullptr) {
          // Traversal with no left child.
          if (curr->left == nullptr) {
