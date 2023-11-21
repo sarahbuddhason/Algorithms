@@ -5,6 +5,7 @@
    - 1.2 [Inorder Traversal (Left, Root, Right)](#inorder-traversal-left-root-right)
    - 1.3 [Postorder Traversal (Left, Right, Root)](#postorder-traversal-left-right-root)
    - 1.4 [Level Order Traversal (Breadth First)](#level-order-traversal-breadth-first)
+   - 1.5 [Morris Inorder Traversal](#morris-inorder-traversal)
    
 2. [Greedy](#greedy)
    
@@ -96,6 +97,55 @@ void levelOrder(Node* root) {
         cout << curr->data << " ";
         if(curr->left) q.push(curr->left);
         if(curr->right) q.push(curr->right);
+    }
+}
+```
+
+---
+
+### Morris Inorder Traversal
+
+- Traverse threaded binary tree without using stack or recursion.
+- Modifies the tree during the traversal and then restores it back.
+- **Time**: O(n)
+- **Space**: O(1)
+
+1. Initialize `current` as `root`.
+2. While `current` is not `NULL`,
+   - If `current` does not have a left child, output its data and go to the right child.
+   - Else, make `current` the right child of the rightmost node in the left subtree.
+   - Move to the left child, i.e., `current = current->left`.
+
+```cpp
+struct Node {
+    int data;
+    Node *left, *right;
+    Node(int data) : data(data), left(NULL), right(NULL) {}
+};
+
+void MorrisTraversal(Node* root) {
+    Node *current, *predecessor;
+    if (root == NULL) return;
+
+    current = root;
+    while (current != NULL) {
+        if (current->left == NULL) {
+            cout << current->data << " ";
+            current = current->right;
+        } else {
+            predecessor = current->left;
+            while (predecessor->right != NULL && predecessor->right != current)
+                predecessor = predecessor->right;
+
+            if (predecessor->right == NULL) {
+                predecessor->right = current;
+                current = current->left;
+            } else {
+                predecessor->right = NULL;
+                cout << current->data << " ";
+                current = current->right;
+            }
+        }
     }
 }
 ```
