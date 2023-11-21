@@ -111,7 +111,7 @@ void levelOrder(Node* root) {
 1. Initialize `current` as `root`.
 2. While `current` is not `NULL`,
    - If `current` does not have a left child, output its data and go to the right child.
-   - Else, make `current` the right child of the rightmost node in the left subtree.
+   - Else, make `current` the right child of the rightmost node in the left subtree (i.e., right child of the predecessor).
    - Move to the left child, i.e., `current = current->left`.
 
 ```cpp
