@@ -136,7 +136,7 @@ void MorrisTraversal(Node* root) {
 
             // Get predecessor.
             pred = curr->left;
-            while (pred->right != nullptr && pred->right != curr)
+            while (pred->right != nullptr && pred->right != curr) // If already pointing to curr, then is already threaded.
                 pred = pred->right;
 
             if (pred->right == nullptr) { // Create a thread.
