@@ -108,11 +108,11 @@ void levelOrder(Node* root) {
 - **Time**: O(n)
 - **Space**: O(1)
 
-1. Initialize `current` as `root`.
-2. While `current` is not `NULL`,
-   - If `current` does not have a left child, output its data and go to the right child.
-   - Else, make `current` the right child of the rightmost node in the left subtree (i.e., right child of the predecessor).
-   - Move to the left child, i.e., `current = current->left`.
+1. Initialize `curr` as `root`.
+2. While `curr` is not `nullptr`,
+   - If `curr` does not have a left child, output its data and go to the right child.
+   - Else, make `curr` the right child of the rightmost node in the left subtree (i.e., right child of the predecessor).
+   - Move to the left child, i.e., `curr = curr->left`.
 
 ```cpp
 struct Node {
@@ -122,26 +122,42 @@ struct Node {
 };
 
 void MorrisTraversal(Node* root) {
-    Node *current, *predecessor;
-    if (root == NULL) return;
+    Node *curr, *pred;
+    if (root == nullptr) return;
 
-    current = root;
-    while (current != NULL) {
-        if (current->left == NULL) {
-            cout << current->data << " ";
-            current = current->right;
-        } else {
-            predecessor = current->left;
-            while (predecessor->right != NULL && predecessor->right != current)
-                predecessor = predecessor->right;
+    curr = root;
+    while (curr != nullptr) {
+         // Traversal with no left child.
+         if (curr->left == nullptr) {
+            // TODO: continue with inorder traversal, so do something with curr.
+            curr = curr->right;
+         } else {
+            // Traversal with left child.
 
-            if (predecessor->right == NULL) {
-                predecessor->right = current;
-                current = current->left;
-            } else {
-                predecessor->right = NULL;
-                cout << current->data << " ";
-                current = current->right;
+            // Get predecessor.
+            pred = curr->left;
+            while (pred->right != nullptr && pred->right != curr)
+                pred = pred->right;
+
+            if (pred->right == nullptr) { // Create a thread.
+
+               // If right of pred is nullptr, then this is our first time visiting curr.
+               // Set right of pred to curr temporarily, creating threaded link.
+               pred->right = curr;
+
+               // Traverse the left child of curr.
+               curr = curr->left;
+
+            } else { // Remove a thread.
+
+               // If right of pred is curr, then we are revisiting curr and have made modifications.
+               // Set right of pred to nullptr.
+               pred->right = nullptr;
+
+               // TODO: continue with inorder traversal, so do something with curr.
+
+               // Traverse the right child of curr.
+               curr = curr->right;
             }
         }
     }
