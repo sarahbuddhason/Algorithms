@@ -21,6 +21,8 @@
    
 6. [Backtracking](#backtracking)
 
+7. [Fast and Slow Pointers](#fast-and-slow-pointers)
+
 ---
 
 ## Tree Traversals
@@ -336,5 +338,32 @@ int main() {
     int N = 4;
     int board[10][10] = {0};
     solve(board, 0, N);
+}
+```
+
+---
+
+## Fast and Slow Pointers
+
+- Utilizes a fast pointer moving twice the speed of a slow pointer.
+
+### Use Cases
+
+- **Cycle Detection:** If the fast pointer meets the slow pointer, a cycle exists.
+- **Finding Middle:** When the fast pointer reaches the end, the slow pointer will be at the middle.
+- **Loop Detection:** Similar to cycle detection, can be used to find the entry point of the loop.
+
+```cpp
+bool hasCycle(ListNode *head) {
+    if (head == nullptr) return false;
+    ListNode *slow = head;
+    ListNode *fast = head;
+
+    while (fast != nullptr && fast->next != nullptr) {
+        slow = slow->next;
+        fast = fast->next->next;
+        if (slow == fast) return true; // Cycle detected
+    }
+    return false; // No cycle
 }
 ```
