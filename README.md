@@ -105,7 +105,7 @@ void levelOrder(Node* root) {
 
 ### Morris Traversal (Threaded)
 
-- Traverse threaded binary tree without using stack or recursion.
+- Traverse threaded binary tree in-order without using stack or recursion.
 - Modifies the tree during the traversal and then restores it back.
 - **Time**: O(n)
 - **Space**: O(1)
